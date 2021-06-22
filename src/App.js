@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import React, { Component } from "react";
+import Header from "./components/Header.js";
+import Footer from "./components/Footer.js";
+import "./App.css";
+import BeerEdit from "./pages/BeerEdit.js";
+import BeerIndex from "./pages/BeerIndex.js";
+import BeerNew from "./pages/BeerNew.js";
+import BeerShow from "./pages/BeerShow";
+import Home from "./pages/Home.js";
+import NotFound from "./pages/NotFound.js";
+import MockBeers from "./src/MockBeers.js";
+class App extends Component {
+  render() {
+    return (
+      <>
+        <Header />
+        <BeerEdit />
+        <BeerIndex />
+        <BeerNew />
+        <BeerShow />
+        <Home />
+        <NotFound />
+        <MockBeers />
+        <Footer />
+      </>
+    );
+  }
 }
 
 export default App;
