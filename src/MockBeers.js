@@ -1,7 +1,4 @@
-//import { Alert } from "bootstrap";
-import React from "react";
-
-let MockBeers = [
+let mockBeers = [
   {
     id: 1,
     brand: "Heineken",
@@ -22,9 +19,4 @@ let MockBeers = [
   },
 ];
 
-class MockBeers extends Component {
-  render() {
-    return <></>;
-  }
-}
-export default MockBeers;
+export default mockBeers;

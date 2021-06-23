@@ -8,9 +8,23 @@ import BeerNew from "./pages/BeerNew.js";
 import BeerShow from "./pages/BeerShow";
 import Home from "./pages/Home.js";
 import NotFound from "./pages/NotFound.js";
-import MockBeers from "./src/MockBeers.js";
+import mockBeers from "./mockBeers.js";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch
+} from 'react-router-dom'
+
+
 class App extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      beers: mockBeers
+    }
+  }
   render() {
+    console.log(this.state.beers);
     return (
       <>
         <Header />
@@ -20,8 +34,18 @@ class App extends Component {
         <BeerShow />
         <Home />
         <NotFound />
-        <MockBeers />
         <Footer />
+
+        <Router>
+          <Switch>
+            <Route exact path="/" component={ Home } />
+            <Route path="/catindex" component={ BeerIndex } />
+            <Route path="/catshow/:id" component={ BeerShow } />
+            <Route path="/catnew" component={ BeerNew } />
+            <Route path="/catedit/:id" component={ BeerEdit } />
+            <Route component={ NotFound }/>
+          </Switch>
+        </Router>
       </>
     );
   }
