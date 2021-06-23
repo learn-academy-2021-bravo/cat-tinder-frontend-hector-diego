@@ -26,27 +26,28 @@ class App extends Component {
   render() {
     console.log(this.state.beers);
     return (
-      <>
-        <Header />
-        <BeerEdit />
-        <BeerIndex />
-        <BeerNew />
-        <BeerShow />
-        <Home />
-        <NotFound />
-        <Footer />
 
         <Router>
+        <Header />
+
           <Switch>
             <Route exact path="/" component={ Home } />
-            <Route path="/catindex" component={ BeerIndex } />
-            <Route path="/catshow/:id" component={ BeerShow } />
-            <Route path="/catnew" component={ BeerNew } />
-            <Route path="/catedit/:id" component={ BeerEdit } />
+
+            <Route path="/beerindex" render={ (props) => <BeerIndex beers={ this.state.beers } /> } />
+            
+            <Route path="/beershow/:id" render={ (props) => {
+              let id = props.match.params.id
+              let beer = this.state.beers.find(beer => beer.id === +id)
+              return <BeerShow beer={ beer } />
+            } } />
+
+            <Route path="/beernew" component={ BeerNew } />
+            <Route path="/beeredit/:id" component={ BeerEdit } />
             <Route component={ NotFound }/>
           </Switch>
+          
+          <Footer />
         </Router>
-      </>
     );
   }
 }
