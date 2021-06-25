@@ -10,7 +10,7 @@ class BeerIndex extends Component {
      <h2>This is the Index Page</h2>
     { beers && beers.map(beer => {
       return (
-        <NavLink to={`/beershow/${beer.id}`} key={ beer.id }>
+        <NavLink to={`show/${beer.id}`} key={ beer.id }>
           <p>{ beer.brand }</p>
         </NavLink>
       )

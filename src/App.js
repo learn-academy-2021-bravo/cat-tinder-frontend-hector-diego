@@ -8,7 +8,7 @@ import BeerNew from "./pages/BeerNew.js";
 import BeerShow from "./pages/BeerShow";
 import Home from "./pages/Home.js";
 import NotFound from "./pages/NotFound.js";
-import mockBeers from "./mockBeers.js";
+import MockBeers from "./MockBeers.js";
 import {
   BrowserRouter as Router,
   Route,
@@ -20,7 +20,7 @@ class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      beers: mockBeers
+      beers: MockBeers
     }
   }
   render() {
@@ -33,16 +33,16 @@ class App extends Component {
           <Switch>
             <Route exact path="/" component={ Home } />
 
-            <Route path="/beerindex" render={ (props) => <BeerIndex beers={ this.state.beers } /> } />
+            <Route path="/index" render={ (props) => <BeerIndex beers={ this.state.beers } /> } />
             
-            <Route path="/beershow/:id" render={ (props) => {
+            <Route path="/show/:id" render={ (props) => {
               let id = props.match.params.id
               let beer = this.state.beers.find(beer => beer.id === +id)
               return <BeerShow beer={ beer } />
             } } />
 
-            <Route path="/beernew" component={ BeerNew } />
-            <Route path="/beeredit/:id" component={ BeerEdit } />
+            <Route path="/new" component={ BeerNew } />
+            <Route path="/edit/:id" component={ BeerEdit } />
             <Route component={ NotFound }/>
           </Switch>
           
