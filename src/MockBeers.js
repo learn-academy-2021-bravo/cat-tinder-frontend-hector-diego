@@ -2,19 +2,19 @@ let mockBeers = [
   {
     id: 1,
     brand: "Heineken",
-    type: "Ale",
+    brew: "Ale",
     country: "Netherlands",
   },
   {
     id: 2,
     brand: "Pacifico",
-    type: "pilsner",
+    brew: "pilsner",
     country: "Mexico",
   },
   {
     id: 3,
     brand: "Coors Light",
-    type: "light lager",
+    brew: "light lager",
     country: "United States",
   },
 ];

@@ -8,13 +8,18 @@ import Enzyme, { shallow } from 'enzyme'
 import Adapter from 'enzyme-adapter-react-16' 
 
  // Imports in the component we are going to be testing. 
-import BeerIndex from '../BeerIndex'
+import BeerShow from '../BeerShow'
+
+import mockBeers from '.../mockBeers.js'
+//Find a way to bring a beer in.
 
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component. 
 Enzyme.configure({ adapter: new Adapter() }) 
-describe('when beer index renders',() => {
-  it('BeerIndex renders content', () => {
-    const beerIndex = shallow(<BeerIndex />)
-    expect(beerIndex.text("h2")).toEqual('This is the Index Page')
-  })
+describe('When BeerShow mounts...',() => {
+    it('shows us card text',() => {
+        const renderedBeerShow = shallow(<BeerShow />)
+        const renderedCardText = renderedBeerShow.find('CardText')
+
+        expect(renderedCardText.length).toEqual(1)
+    })
 })
