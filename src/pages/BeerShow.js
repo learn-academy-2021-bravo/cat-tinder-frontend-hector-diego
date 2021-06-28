@@ -8,7 +8,7 @@ export default class BeerShow extends Component {
       <>
         <h2>This is the show page</h2>
         <p>{ beer.brand }</p>
-        <p>{ beer.type }</p>
+        <p>{ beer.brew }</p>
         <p>{ beer.country }</p>
       </>
     )
